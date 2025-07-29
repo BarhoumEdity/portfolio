@@ -722,7 +722,6 @@ img {
     height: 100%;
     object-fit: cover;
     border-radius: .5rem;
-    pointer-events: none
 }
 
 .portfolio__title {
