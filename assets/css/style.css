@@ -1,6 +1,5 @@
 /*==================== GOOGLE FONTS ====================*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-
 /*==================== VARIABLES CSS ====================*/
 :root {
   --header-height: 3rem;
@@ -421,7 +420,7 @@ img {
   margin-bottom: var(--mb-2-5);
 }
 
-.about_info {
+/* .about_info {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: var(--mb-2-5);
@@ -441,7 +440,46 @@ img {
 .about__info-name {
   display: block;
   text-align: center;
+} */
+
+/*==================== ABOUT SKILL ICONS ====================*/
+.about__skills {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: var(--mb-2-5);
 }
+
+.skill__icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.skill__icon img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--mb-0-5);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+.skill__icon:hover {
+    transform: translateY(-0.25rem);
+}
+
+.skill__name {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    font-weight: var(--font-medium);
+}
+
+/* Dark theme adjustments */
+body.dark-theme .skill__icon img {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+
 
 .about__buttons {
   display: flex;
@@ -451,11 +489,6 @@ img {
 /*==================== SKILLS ====================*/
 .skills__container {
   row-gap: 0;
-}
-
-.skills__content {
-    width: 100%;
-    max-width: 500px;
 }
 
 .skills__header {
@@ -521,6 +554,28 @@ img {
   background-color: var(--first-color);
 }
 
+.skills__premiere {
+  width: 95%;
+}
+
+.skills__afterEffect {
+  width: 90%;;
+}
+
+.skills__capcut {
+    width: 100%;
+}
+
+.skills__production {
+    width: 90%;
+}
+.skills__engagement {
+    width: 85%;
+}
+.skills__algorithms {
+    width: 80%;
+}
+
 .skills__close .skills__list {
   height: 0;
   overflow: hidden;
@@ -535,9 +590,6 @@ img {
   transform: rotate(-180deg);
 }
 
-.skills__capcut {
-    width: 100%;
-}
 
 /*==================== SERVICES ====================*/
 .skills__container {
@@ -1345,8 +1397,52 @@ footer .footer__social a:hover {
   }
 }
 
-/*==================== Skills logo ====================*/
-.skills__logo:hover{
-  transform: translateY(-.25rem);
-  transition: 1s;
+/* 1. Ensure containers don't exceed viewport */
+@media screen and (max-width: 768px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+    width: calc(100% - 2rem); /* Accounts for margins */
+  }
+  
+  /* 2. Fix any swiper overflow */
+  .portfolio__container.swiper-container {
+    padding: 0 1rem;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+  }
+  
+  /* 3. Check the home blob */
+  .home__blob {
+    max-width: 180px;
+  }
+  
+  /* 4. Prevent grid blowout */
+  .grid {
+    min-width: 0; /* Allows grid items to shrink */
+  }
+}
+
+/* 5. Safely contain absolutely positioned elements */
+@media screen and (max-width: 768px) {
+  .home__content {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+/* Add this to your CSS */
+.main {
+  /* Creates a new stacking/containment context */
+  contain: layout;
+  /* Alternative if 'contain' isn't widely supported */
+  overflow: hidden;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    /* More aggressive containment for mobile */
+    display: flow-root; /* Modern clearfix */
+  }
 }
