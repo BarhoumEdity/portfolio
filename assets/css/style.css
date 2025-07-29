@@ -1,5 +1,11 @@
 /*==================== GOOGLE FONTS ====================*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+ 
+
+/* Author: Mohamed Rayen Elmi
+Website: https://medrayentn.github.io/myportfolio/
+Copyright © 2025 Rayen. All rights reserved. */
+
 /*==================== VARIABLES CSS ====================*/
 :root {
   --header-height: 3rem;
@@ -142,6 +148,11 @@ a {
 img {
   max-width: 100%;
   height: auto;
+}
+
+
+strong{
+  color: var(--first-color);
 }
 
 /*==================== REUSABLE CSS CLASSES ====================*/
@@ -358,6 +369,11 @@ img {
   font-size: 1.25rem;
 }
 
+.auto-input{
+  font-weight: bold;
+  color: var(--first-color);
+}
+
 /*==================== BUTTONS ====================*/
 .button {
   display: inline-block;
@@ -419,28 +435,6 @@ img {
   text-align: center;
   margin-bottom: var(--mb-2-5);
 }
-
-/* .about_info {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: var(--mb-2-5);
-}
-
-.about__info-title {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
-  color: var(--title-color);
-}
-
-.about__info-name {
-  font-size: var(--smaller-font-size);
-}
-
-.about__info-title,
-.about__info-name {
-  display: block;
-  text-align: center;
-} */
 
 /*==================== ABOUT SKILL ICONS ====================*/
 .about__skills {
@@ -592,17 +586,9 @@ body.dark-theme .skill__icon img {
 
 
 /*==================== SERVICES ====================*/
-.skills__container {
-  display: grid;
-  justify-content: center;
+.services__container {
   gap: 1.5rem;
-  width: 100%;
-}
-
-.services__svg-icon {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .services__content {
@@ -614,9 +600,7 @@ body.dark-theme .skill__icon img {
   transition: .3s;
 }
 
-.services__content:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, .15);
-}
+
 
 .services__icon {
   display: block;
@@ -668,7 +652,7 @@ body.dark-theme .skill__icon img {
   row-gap: 1rem;
 }
 
-.service__modal-service {
+.services__modal-service {
   display: flex;
 }
 
@@ -705,12 +689,6 @@ body.dark-theme .skill__icon img {
 
 .portfolio__content {
   padding: 0 1.5rem;
-}
-
-.portfolio__img {
-  width: 265px;
-  border-radius: .5rem;
-  justify-self: center;
 }
 
 .portfolio__title {
@@ -810,6 +788,29 @@ body.dark-theme .skill__icon img {
   justify-self: center;
 }
 
+/*==================== WORKING RESULTS SWIPER ====================*/
+.working__container {
+  overflow: initial;
+}
+
+.working__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.working__img {
+  max-width: 100%;
+  width: 320px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.working__img:hover {
+  transform: scale(1.03);
+}
 
 
 /*==================== TESTIMONIAL ====================*/
@@ -1429,15 +1430,6 @@ footer .footer__social a:hover {
     position: relative;
     overflow: hidden;
   }
-}
-
-/* Add this to your CSS */
-.main {
-  /* Creates a new stacking/containment context */
-  contain: layout;
-  /* Alternative if 'contain' isn't widely supported */
-  overflow: hidden;
-  position: relative;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,3 +1,7 @@
+/* Author: Mohamed Rayen Elmi
+Website: https://medrayentn.github.io/myportfolio/
+Copyright © 2025 Rayen. All rights reserved. */
+
 /*==================== MENU SHOW Y HIDDEN ====================*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
@@ -50,12 +54,43 @@ skillsHeader.forEach((el) => {
 
 
 /*==================== SERVICES MODAL ====================*/
+// const modalViews = document.querySelectorAll('.services__modal'),
+//       modalBtns = document.querySelectorAll('.services__button'),
+//       modalCloses = document.querySelectorAll('.services__modal-close')
+
+// let modal = function(modalClick) {
+//     modalViews[modalClick].classList.add('active-modal')
+// }
+
+// modalBtns.forEach((modalBtn, i) => {
+//     modalBtn.addEventListener('click', () => {
+//         modal(i)
+//     })
+// })
+
+// modalCloses.forEach((modalClose) => {
+//     modalClose.addEventListener('click', () => {
+//         modalViews.forEach((modalView) => {
+//             modalView.classList.remove('active-modal')
+//         })
+//     })
+// })
+/*==================== SERVICES MODAL ====================*/
 const modalViews = document.querySelectorAll('.services__modal'),
       modalBtns = document.querySelectorAll('.services__button'),
       modalCloses = document.querySelectorAll('.services__modal-close')
 
 let modal = function(modalClick) {
+    // First close any open modals
+    modalViews.forEach((modalView) => {
+        modalView.classList.remove('active-modal')
+    })
+    
+    // Then open the clicked modal
     modalViews[modalClick].classList.add('active-modal')
+    
+    // Prevent body from scrolling when modal is open
+    document.body.style.overflow = 'hidden';
 }
 
 modalBtns.forEach((modalBtn, i) => {
@@ -69,8 +104,21 @@ modalCloses.forEach((modalClose) => {
         modalViews.forEach((modalView) => {
             modalView.classList.remove('active-modal')
         })
+        // Restore body scrolling
+        document.body.style.overflow = 'auto';
     })
 })
+
+// Close modal when clicking outside content
+modalViews.forEach(modalView => {
+    modalView.addEventListener('click', (e) => {
+        if(e.target === modalView) {
+            modalView.classList.remove('active-modal')
+            document.body.style.overflow = 'auto';
+        }
+    })
+})
+
 /*==================== PORTFOLIO SWIPER  ====================*/
 let swiperPortfolio = new Swiper('.portfolio__container', {
     cssMode: true,
@@ -85,6 +133,32 @@ let swiperPortfolio = new Swiper('.portfolio__container', {
         clickable: true,
     },
 });
+
+/*==================== WORKING RESULTS SWIPER ====================*/
+let swiperWorking = new Swiper('.working__container', {
+    cssMode: true,
+    loop: false,
+    
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    autoplay: {
+        delay: 2500, // 2.5 seconds between slides
+        disableOnInteraction: false, // Keeps autoplay running after user interacts
+    },
+});
+
+document.querySelectorAll('.working__container .swiper-button-next, .working__container .swiper-button-prev')
+  .forEach(el => el.style.display = 'none');
+
+
 
 /*==================== TESTIMONIAL ====================*/
 let swiperTestimonial = new Swiper('.testimonial__container', {
