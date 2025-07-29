@@ -370,6 +370,7 @@ strong{
 }
 
 .auto-input{
+  font-size: var(--h2-font-size);
   font-weight: bold;
   color: var(--first-color);
 }
