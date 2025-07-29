@@ -829,6 +829,7 @@ body.dark-theme .skill__icon img {
   height: 60px;
   border-radius: 50%;
   margin-right: var(--mb-0-75);
+  background-color: #fff;
 }
 
 .testimonial__name {
